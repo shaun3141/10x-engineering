@@ -1,0 +1,21 @@
+.collection {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-height: 50px;
+}
+.collection li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: -1px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+.collection li:hover {
+  background-color: #eee;
+}
+.dark-mode .collection li {
+  color: #fff;
+  background-color: #303030;
+  border-color: #383838;
+}

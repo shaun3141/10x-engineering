@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Sorting</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <label for="numberList">Enter a comma-separated list of numbers:</label
+    ><br />
+    <input type="text" id="numberList" /><br />
+    <select id="operation">
+      <option value="sum">Sum</option>
+      <option value="product">Product</option>
+      <option value="custom">Custom</option>
+    </select>
+    <div id="customExpression" style="display: none">
+      <label for="expression"
+        >Enter a mathematical expression using x to represent each number in the
+        list:</label
+      ><br />
+      <input type="text" id="expression" /><br />
+    </div>
+    <button id="calculateButton">Calculate</button>
+    <div id="result"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+[
+  {
+    "actionType": "runTerminal",
+    "content": "npx create-next-app todo-app && cd todo-app"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "npm install @mui/material @emotion/react @emotion/styled"
+  },
+  {
+    "actionType": "createFile",
+    "path": "src/components/.keep",
+    "content": ""
+  },
+  {
+    "actionType": "createFile",
+    "path": "src/components/TodoItem.js",
+    "content": "import React from 'react';\nimport { ListItem, ListItemText, Checkbox } from '@mui/material';\n\nconst TodoItem = ({ todo, toggleCompleted }) => {\n return (\n <ListItem>\n <Checkbox checked={todo.completed} onChange={() => toggleCompleted(todo.id)} />\n <ListItemText primary={todo.title} />\n </ListItem>\n );\n};\n\nexport default TodoItem;"
+  },
+  {
+    "actionType": "createFile",
+    "path": "src/components/TodoList.js",
+    "content": "import React from 'react';\nimport TodoItem from './TodoItem';\n\nconst TodoList = ({ todos, toggleCompleted }) => {\n return todos.map((todo) => (\n <TodoItem key={todo.id} todo={todo} toggleCompleted={toggleCompleted} />\n ));\n};\n\nexport default TodoList;"
+  },
+  {
+    "actionType": "createFile",
+    "path": "src/components/NewTodoForm.js",
+    "content": "import React, { useState } from 'react';\nimport { TextField, Button } from '@mui/material';\n\nconst NewTodoForm = ({ addTodo }) => {\n const [title, setTitle] = useState('');\n\n const handleSubmit = (e) => {\n e.preventDefault();\n if (title.trim()) {\n addTodo(title);\n setTitle('');\n }\n };\n\n return (\n <form onSubmit={handleSubmit}>\n <TextField label='New Todo' value={title} onChange={(e) => setTitle(e.target.value)} fullWidth />\n <Button type='submit' color='primary' variant='contained'>Add Todo</Button>\n </form>\n );\n};\n\nexport default NewTodoForm;"
+  },
+  {
+    "actionType": "editFile",
+    "path": "src/pages/index.js",
+    "content": "import { useState } from 'react';\nimport Head from 'next/head';\nimport NewTodoForm from '../components/NewTodoForm';\nimport TodoList from '../components/TodoList';\n\nexport default function Home() {\n const [todos, setTodos] = useState([]);\n\n const addTodo = (title) => {\n const newTodo = { id: Date.now(), title, completed: false };\n setTodos([...todos, newTodo]);\n };\n\n const toggleCompleted = (id) => {\n setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed} : todo)));\n };\n\n return (\n <div>\n <Head>\n <title>Todo App</title>\n <meta name='description' content='A simple Todo App built with Next.js and Material UI' />\n <link rel='icon' href='/favicon.ico' />\n </Head>\n\n <main>\n <h1>Todo App</h1>\n <NewTodoForm addTodo={addTodo} />\n <TodoList todos={todos} toggleCompleted={toggleCompleted} />\n </main>\n\n <footer>\n <p>Todo App built with Next.js and Material UI</p>\n </footer>\n </div>\n );\n}"
+  }
+]

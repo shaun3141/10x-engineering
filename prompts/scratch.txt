@@ -1,0 +1,225 @@
+What is a feature that would make this application better? Only describe the feature and create a summary of it
+
+Feature: Persistent Todo Items
+
+Summary: To improve the user experience and functionality of the Todo app, implementing persistent storage for todo items would ensure that tasks are not lost upon refreshing the page or closing the browser. This feature could be achieved using local storage, cookies, or a more robust solution such as a database or external API. By adding persistent storage, users can continue working on their tasks even after leaving and returning to the app, making it more practical and efficient.
+
+
+
+Given the feature below:
+
+Feature: Persistent Todo Items
+
+Summary: To improve the user experience and functionality of the Todo app, implementing persistent storage for todo items would ensure that tasks are not lost upon refreshing the page or closing the browser. This feature could be achieved using local storage, cookies, or a more robust solution such as a database or external API. By adding persistent storage, users can continue working on their tasks even after leaving and returning to the app, making it more practical and efficient.
+
+Please create Action Objects to do this:
+
+An Action Object JSON can be defined with the following properties:
+
+### actionType: enum
+A required field representing the type of action to perform. It must be one of the following values:
+
+- runTerminal: Execute a command in a terminal or command prompt window.
+- createFile: Create a new file with the specified contents.
+- editFile: Modify an existing file by replacing all of its content with something new.
+- deleteFile: Delete an existing file.
+
+### path: string
+A required field specifying the location of the file to create, edit, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.
+
+### content: string
+A required field containing the primary information related to the action. Depending on the actionType, this could be:
+
+- Code to execute in a terminal window for `runTerminal`.
+- Contents of a file to create for `createFile`.
+- New code to replace all of the current code in an existing file for `editFile`
+The `content` field can be blank for the `deleteFile` action type.
+
+Relevant Files:
+
+projects/todo-app/components/TodoList.js
+```
+import React, { useState } from "react";
+
+const TodoList = () => {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    setTodos([...todos, input]);
+    setInput("");
+  };
+
+  return (
+    <div>
+      <h1>Todo App</h1>
+      <form onSubmit={addTodo}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button type="submit">Add Todo</button>
+      </form>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default TodoList;
+
+```
+
+--------------
+
+## Application Summary:
+A todo list application built with next.js. 
+
+## Application Constraints
+- This app will not have a database. 
+- This app will not have the ability to do user authentication.
+- This app will be a stand-alone web application
+
+Existing Features:
+ - Local Storage to persist todos across page refreshes
+
+## Question:
+What is an incremental feature to build that would make this application more useful and engaging to its users? 
+
+The feature should not violate the application constraints.
+
+Please provide a JSON blob describing the feature with the following values:
+ - `name` - Name of Feature
+ - `brief_summary` - A one-sentence long brief summary of the feature
+ - `how_to` - A description of how this feature could work
+
+
+-------------
+
+Given the feature below:
+
+Feature: Recurring Tasks and Reminders
+
+Summary: The Recurring Tasks and Reminders feature will allow users to set tasks to repeat at specific intervals (daily, weekly, monthly, etc.) and receive notifications or reminders for these tasks. This enhancement will help users efficiently manage their ongoing responsibilities, ensuring they never miss important deadlines or events.
+
+Please create Action Objects to do this:
+
+An Action Object JSON can be defined with the following properties:
+
+### actionType: enum
+A required field representing the type of action to perform. It must be one of the following values:
+
+- runTerminal: Execute a command in a terminal or command prompt window.
+- createFile: Create a new file with the specified contents.
+- editFile: Modify an existing file by replacing all of its content with something new.
+- deleteFile: Delete an existing file.
+
+### path: string
+A required field specifying the location of the file to create, edit, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.
+
+### content: string
+A required field containing the primary information related to the action. Depending on the actionType, this could be:
+
+- Code to execute in a terminal window for `runTerminal`.
+- Contents of a file to create for `createFile`.
+- New code to replace all of the current code in an existing file for `editFile`
+The `content` field can be blank for the `deleteFile` action type.
+
+Relevant Files:
+
+projects/todo-app/components/TodoList.js
+```
+import React, { useState } from "react";
+
+const TodoList = () => {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    setTodos([...todos, input]);
+    setInput("");
+  };
+
+  return (
+    <div>
+      <h1>Todo App</h1>
+      <form onSubmit={addTodo}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button type="submit">Add Todo</button>
+      </form>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default TodoList;
+
+```
+
+------------------------------------------------
+
+
+## Feature Request
+You will be implementing the following feature request:
+**My Todo Lists** - Allow users to create and store several custom todo lists.
+
+Users would be able to add custom todo lists from the home page and the lists would track separate tasks and the completion status of each task.
+
+## Source Directory
+The files in this application are organized in a specific way. The file structure is as follows:
+todo-app
+  jsconfig.json
+  next.config.js
+  README.md
+  package-lock.json
+  package.json
+  .eslintrc.json
+  styles
+    globals.css
+    Home.module.css
+  components
+    TodoList.js
+  public
+    favicon.ico
+    thirteen.svg
+    vercel.svg
+    next.svg
+  pages
+    _app.js
+    index.js
+    _document.js
+    api
+      hello.js
+
+## File Context
+For context, some files have been added below:
+
+
+
+## Steps to Build Feature
+You will accomplish this feature request in steps. 
+
+Please create an array of objects, where each object describes the step that will be needed to accomplish this.
+
+The object will have the following properties:
+- `targets` - An array containing the names of the files to create, edit, or otherwise make a change to in this step. 
+- `command` - If a step needs a command to run in the terminal, write the command. 
+- `description` - One paragraph about what to do in this step
+
+Do _NOT_ write code right now, just add a description about the code to write. 
+
+[

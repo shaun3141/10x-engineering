@@ -1,0 +1,48 @@
+[
+  {
+    "actionType": "runTerminal",
+    "content": "npx create-next-app twilio-gpt3-app"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "cd twilio-gpt3-app"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "npm install twilio openai"
+  },
+  {
+    "actionType": "createFile",
+    "path": ".env.local",
+    "content": "TWILIO_ACCOUNT_SID=your_twilio_account_sid\nTWILIO_AUTH_TOKEN=your_twilio_auth_token\nTWILIO_PHONE_NUMBER=your_twilio_phone_number\nOPENAI_API_KEY=your_openai_api_key"
+  },
+  {
+    "actionType": "createFile",
+    "path": "pages/api/sms.js",
+    "content": "import { createGPT3Completion } from '../../utils/gpt3';\n  import { sendSMS } from '../../utils/twilio';\n  \n  export default async function handler(req, res) {\n    if (req.method === 'POST') {\n      const { Body, From } = req.body;\n  \n      try {\n        const completion = await createGPT3Completion(Body);\n        await sendSMS(From, completion);\n        res.status(200).send('Success');\n      } catch (error) {\n        console.error(error);\n        res.status(500).send('Error processing request');\n      }\n    } else {\n      res.status(405).send('Method not allowed');\n    }\n  }"
+  },
+  {
+    "actionType": "createFile",
+    "path": "utils/twilio.js",
+    "content": "import twilio from 'twilio';\n\nconst { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER } = process.env;\n\nconst client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);\n\nexport async function sendSMS(to, message) {\n  return client.messages.create({\n    body: message,\n    from: TWILIO_PHONE_NUMBER,\n    to,\n  });\n}"
+  },
+  {
+    "actionType": "createFile",
+    "path": "utils/twilio.js",
+    "content": "import twilio from 'twilio';\n\nconst { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER } = process.env;\n\nconst client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);\n\nexport async function sendSMS(to, message) {\n  return client.messages.create({\n    body: message,\n    from: TWILIO_PHONE_NUMBER,\n    to,\n  });\n}"
+  },
+  {
+    "actionType": "createFile",
+    "path": "utils/gpt3.js",
+    "content": "import axios from 'axios';\n\nconst { OPENAI_API_KEY } = process.env;\nconst GPT_3_API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions';\n\nconst headers = {\n  \"Content-Type\": \"application/json\",\n  \"Authorization\": `Bearer ${OPENAI_API_KEY}`, \n};\n\nexport async function createGPT3Completion(prompt) {\n  const data = {\n    prompt,\n    max_tokens: 50,\n    n: 1,\n    stop: null,\n    temperature: 0.5,\n  };\n\n  const response = await axios.post(GPT_3_API_URL, data, { headers });\n  const completion = response.data.choices[0].text.trim();\n  return completion;\n}"
+  },
+  {
+    "actionType": "createFile",
+    "path": "pages/api/sms/webhook.js",
+    "content": "import { createGPT3Completion } from '../../../utils/gpt3';\nimport { sendSMS } from '../../../utils/twilio';\n\nexport default async function handler(req, res) {\n  if (req.method === 'POST') {\n    const { Body, From } = req.body;\n\n    try {\n      const completion = await createGPT3Completion(Body);\n      await sendSMS(From, completion);\n      res.status(200).send('Success');\n    } catch (error) {\n      console.error(error);\n      res.status(500).send('Error processing request');\n    }\n  } else {\n    res.status(405).send('Method not allowed');\n  }\n}"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "npm run dev"
+  }
+]

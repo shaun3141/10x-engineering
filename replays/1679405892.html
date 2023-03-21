@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Replay 1679405892</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Source Code Pro', monospace;
+            }
+
+            h3: { margin: 0; }
+
+            .event {
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid black;
+            } 
+
+            .typeprompt {
+                background-color: #ffcccc;
+            }
+
+            .typeaction {
+                background-color: #ccffcc;
+            }
+
+            .typemessage {
+                background-color: #ccccff;
+            }
+
+            .typedebug {
+                background-color: #cccccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Replay 1679405892</h1>
+            <div class='event typedebug'><h3>Debug:</h3>Asking for the base action steps...</div><div class='event typeprompt'><h3>Prompt:</h3>Identify every step needed to create a basic Todo App called "doto" using Next.js. Initialize the app using the create-next-app library. <br>For each step to do, create an Action Object to describe what needs to be done.<br><br>Create a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.<br><br>You should always make up names given context instead of using placeholder values like &lt;project name&gt;.<br><br>An Action Object JSON can be defined with the following properties:<br><br>### actionType: enum<br>A required field representing the type of action to perform. It must be one of the following values:<br><br>- runTerminal: Execute a command in a terminal or command prompt window.<br>- createFile: Create a new file with the specified contents.<br>- editFile: Modify an existing file by replacing all of its content with something new.<br>- renameFile: Rename an existing file.<br>- deleteFile: Delete an existing file.<br><br>### path: string<br>A required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.<br><br>### content: string<br>A required field containing the primary information related to the action. Depending on the actionType, this could be:<br><br>- Code to execute in a terminal window for `runTerminal`.<br>- Contents of a file to create for `createFile`, always written in full.<br>- New code to replace all of the current code in an existing file for `editFile`, always written in full.<br>- The new name of the file to be renamed for `renameFile`<br>The `content` field can be blank for the `deleteFile` action type.<br><br>When setting the `content` field to code, write the entire code needed.<br><br>### Step 1: </div><div class='event typemessage'><h3>Response:</h3>Initialize the Todo App using the create-next-app library<br><br>- actionType: runTerminal<br>- content: npx create-next-app doto<br>- path: N/A<br><br>### Step 2:<br>Install necessary packages<br><br>- actionType: runTerminal<br>- content: npm install react react-dom next<br>- path: ./doto<br><br>### Step 3:<br>Create the pages directory<br><br>- actionType: runTerminal<br>- content: mkdir pages<br>- path: ./doto<br><br>### Step 4:<br>Create the index page<br><br>- actionType: createFile<br>- content: "import Head from 'next/head';<br><br>export default function Home() {<br>  return (<br>    &lt;div&gt;<br>      &lt;Head&gt;<br>        &lt;title&gt;Doto Todo App&lt;/title&gt;<br>      &lt;/Head&gt;<br>      &lt;h1&gt;Welcome to Doto&lt;/h1&gt;<br>    &lt;/div&gt;<br>  )<br>}"<br>- path: ./doto/pages/index.js<br><br>### Step 5:<br>Start the development server<br><br>- actionType: runTerminal<br>- content: npm run dev<br>- path: ./doto<br><br>### Step 6:<br>Verify that the app is running properly in the browser<br><br>- actionType: runTerminal<br>- content: N/A<br>- path: N/A<br><br>### Step 7:<br>Create a components directory<br><br>- actionType: runTerminal<br>- content: mkdir components<br>- path: ./doto<br><br>### Step 8:<br>Create a Header component<br><br>- actionType: createFile<br>- content: "export default function Header() {<br>  return (<br>    &lt;header&gt;<br>      &lt;h1&gt;Doto&lt;/h1&gt;<br>    &lt;/header&gt;<br>  )<br>}"<br>- path: ./doto/components/Header.js<br><br>### Step 9:<br>Edit the index page to add the Header component<br><br>- actionType: editFile<br>- content: "import Head from 'next/head';<br>import Header from '../components/Header';<br><br>export default function Home() {<br>  return (<br>    &lt;div&gt;<br>      &lt;Head&gt;<br>        &lt;title&gt;Doto Todo App&lt;/title&gt;<br>      &lt;/Head&gt;<br>      &lt;Header /&gt;<br>      &lt;h1&gt;Welcome to Doto&lt;/h1&gt;<br>    &lt;/div&gt;<br>  )<br>}"<br>- path: ./doto/pages/index.js<br><br>### Step 10:<br>Create a TodoList component<br><br>- actionType: createFile<br>- content: "import React, { useState } from 'react';<br><br>export default function TodoList() {<br>  const [todos, setTodos] = useState([]);<br><br>  const handleSubmit = (event) =&gt; {<br>    event.preventDefault();<br>    const todoInput = event.target.elements.todoInput;<br>    if (todoInput.value) {<br>      setTodos([...todos, todoInput.value]);<br>      todoInput.value = '';<br>    }<br>  };<br><br>  return (<br>    &lt;&gt;<br>      &lt;form onSubmit={handleSubmit}&gt;<br>        &lt;input type='text' name='todoInput' placeholder='Add Todo' /&gt;<br>        &lt;button type='submit'&gt;Add&lt;/button&gt;<br>      &lt;/form&gt;<br>      &lt;ul&gt;<br>        {todos.map((todo, index) =&gt; (<br>          &lt;li key={index}&gt;{todo}&lt;/li&gt;<br>        ))}<br>      &lt;/ul&gt;<br>    &lt;/&gt;<br>  );<br>}"<br>- path: ./doto/components/TodoList.js<br><br>### Step 11:<br>Edit the index page to add the TodoList component<br><br>- actionType: editFile<br>- content: "import Head from 'next/head';<br>import Header from '../components/Header';<br>import TodoList from '../components/TodoList';<br><br>export default function Home() {<br>  return (<br>    &lt;div&gt;<br>      &lt;Head&gt;<br>        &lt;title&gt;Doto Todo App&lt;/title&gt;<br>      &lt;/Head&gt;<br>      &lt;Header /&gt;<br>      &lt;h1&gt;Welcome to Doto&lt;/h1&gt;<br>      &lt;TodoList /&gt;<br>    &lt;/div&gt;<br>  )<br>}"<br>- path: ./doto/pages/index.js<br><br>### Step 12:<br>Stop the development server<br><br>- actionType: runTerminal<br>- content: Control + C<br>- path: N/A</div>
+    </body>
+</html>
+            

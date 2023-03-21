@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Replay 1679384140</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Source Code Pro', monospace;
+            }
+
+            h3: { margin: 0; }
+
+            .event {
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid black;
+            } 
+
+            .typeprompt {
+                background-color: #ffcccc;
+            }
+
+            .typeaction {
+                background-color: #ccffcc;
+            }
+
+            .typemessage {
+                background-color: #ccccff;
+            }
+
+            .typedebug {
+                background-color: #cccccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Replay 1679384140</h1>
+            <div class='event typedebug'><h3>Debug:</h3>Asking for the base action steps...</div><div class='event typeprompt'><h3>Prompt:</h3>Identify every step needed to create a basic HTML Todo App using JQuery and a modern UX framework like Materialize. <br>For each step to do, create an Action Object to describe what needs to be done.<br><br>Create a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.<br><br>You should always make up names given context instead of using placeholder values like &lt;project name&gt;.<br><br>An Action Object JSON can be defined with the following properties:<br><br>### actionType: enum<br>A required field representing the type of action to perform. It must be one of the following values:<br><br>- runTerminal: Execute a command in a terminal or command prompt window.<br>- createFile: Create a new file with the specified contents.<br>- editFile: Modify an existing file by replacing all of its content with something new.<br>- renameFile: Rename an existing file.<br>- deleteFile: Delete an existing file.<br><br>### path: string<br>A required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.<br><br>### content: string<br>A required field containing the primary information related to the action. Depending on the actionType, this could be:<br><br>- Code to execute in a terminal window for `runTerminal`.<br>- Contents of a file to create for `createFile`, always written in full.<br>- New code to replace all of the current code in an existing file for `editFile`, always written in full.<br>- The new name of the file to be renamed for `renameFile`<br>The `content` field can be blank for the `deleteFile` action type.<br><br>When setting the `content` field to code, write the entire code needed.<br><br>### Step 1: </div><div class='event typemessage'><h3>Response:</h3>Install Materialize via CDN.<br><br>Action Object:<br>```json<br>{<br>  "actionType": "runTerminal",<br>  "content": "&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"&gt;&lt;/script&gt;"<br>}<br>```<br><br>### Step 2:<br>Create html document, including an input field, button, and unordered list for task items. <br><br>Action Object:<br>```json<br>{<br>  "actionType": "createFile",<br>  "path": "index.html",<br>  "content": "&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\"utf-8\" /&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /&gt;\n    &lt;title&gt;Todo App&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\" /&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div class=\"container\"&gt;\n      &lt;h1&gt;Todo App&lt;/h1&gt;\n      &lt;form&gt;\n        &lt;div class=\"input-field\"&gt;\n          &lt;label for=\"task\"&gt;Task:&lt;/label&gt;\n          &lt;input id=\"task\" type=\"text\" /&gt;\n        &lt;/div&gt;\n        &lt;button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\"&gt;\n          Add\n          &lt;i class=\"material-icons right\"&gt;add&lt;/i&gt;\n        &lt;/button&gt;\n      &lt;/form&gt;\n      &lt;ul class=\"collection\"&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js\"&gt;&lt;/script&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"&gt;&lt;/script&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"<br>}<br>```<br><br>### Step 3: <br>Add jQuery library via CDN.<br><br>Action Object:<br>```json<br>{<br>  "actionType": "runTerminal",<br>  "content": "&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js\"&gt;&lt;/script&gt;"<br>}<br>```<br><br>### Step 4: <br>Add a script for our application to the html document.<br><br>Action Object:<br>```json<br>{<br>  "actionType": "editFile",<br>  "path": "index.html",<br>  "content": "&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\"utf-8\" /&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /&gt;\n    &lt;title&gt;Todo App&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\" /&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div class=\"container\"&gt;\n      &lt;h1&gt;Todo App&lt;/h1&gt;\n      &lt;form&gt;\n        &lt;div class=\"input-field\"&gt;\n          &lt;label for=\"task\"&gt;Task:&lt;/label&gt;\n          &lt;input id=\"task\" type=\"text\" /&gt;\n        &lt;/div&gt;\n        &lt;button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\"&gt;\n          Add\n          &lt;i class=\"material-icons right\"&gt;add&lt;/i&gt;\n        &lt;/button&gt;\n      &lt;/form&gt;\n      &lt;ul class=\"collection\"&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js\"&gt;&lt;/script&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"&gt;&lt;/script&gt;\n    &lt;script&gt;\n      $(function() {\n        // code for our todo app\n      });\n    &lt;/script&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"<br>}<br>```<br><br>### Step 5: <br>Create a script that listens for the form to be submitted and modifies the unordered list of tasks.<br><br>Action Object:<br>```json<br>{<br>  "actionType": "editFile",<br>  "path": "index.html",<br>  "content": "&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charset=\"utf-8\" /&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /&gt;\n    &lt;title&gt;Todo App&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\" /&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;div class=\"container\"&gt;\n      &lt;h1&gt;Todo App&lt;/h1&gt;\n      &lt;form&gt;\n        &lt;div class=\"input-field\"&gt;\n          &lt;label for=\"task\"&gt;Task:&lt;/label&gt;\n          &lt;input id=\"task\" type=\"text\" /&gt;\n        &lt;/div&gt;\n        &lt;button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\"&gt;\n          Add\n          &lt;i class=\"material-icons right\"&gt;add&lt;/i&gt;\n        &lt;/button&gt;\n      &lt;/form&gt;\n      &lt;ul class=\"collection\"&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js\"&gt;&lt;/script&gt;\n    &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"&gt;&lt;/script&gt;\n    &lt;script&gt;\n      $(function() {\n        $('form').submit(function(event) {\n          event.preventDefault();\n          var task = $('#task').val();\n          $('ul.collection').append('&lt;li class=\"collection-item\"&gt;' + task + '&lt;/li&gt;');\n          $('#task').val('');\n        });\n      });\n    &lt;/script&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"<br>}<br>``` <br><br>The Todo App should now be complete, allowing users to add tasks and see them displayed in an unordered list.</div><div class='event typeaction'>
+                        <h3>Action:</h3>      
+                        
+                        
+                        <b>Content:</b><br> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"&gt;&lt;/script&gt;<br>
+                    </div>
+    </body>
+</html>
+            

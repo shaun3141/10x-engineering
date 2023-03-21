@@ -1,0 +1,22 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+#todo-list li a {
+  color: #f44336;
+}
+
+#todo-input:focus + button {
+  background-color: #2196f3 !important;
+}

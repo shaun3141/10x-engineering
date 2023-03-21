@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo App</h1>
+      <div class="row">
+        <form class="col s12">
+          <div class="input-field col s10">
+            <input id="todo-input" type="text" class="validate" />
+            <label for="todo-input">New Todo</label>
+          </div>
+          <div class="input-field col s2">
+            <input type="submit" value="Add" class="btn" />
+          </div>
+        </form>
+      </div>
+      <ul class="collection"></ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+<style>
+  body {
+    background-color: #f5f5f5;
+  }
+
+  .container {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .collection-item {
+    font-size: 20px;
+  }
+</style>

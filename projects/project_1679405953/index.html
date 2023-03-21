@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Todo List</h3>
+      <ul class="collection">
+        <!--Todo items will be added here-->
+      </ul>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s10">
+              <input id="newTodoItem" type="text" class="validate" />
+              <label for="newTodoItem">New Todo Item</label>
+            </div>
+            <div class="col s2">
+              <a id="addTodoItem" class="waves-effect waves-light btn"
+                ><i class="material-icons">add</i></a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>

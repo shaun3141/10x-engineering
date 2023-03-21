@@ -1,0 +1,5 @@
+sortList(); function sortList() { var list = $('.collection'); var items =
+list.children('.collection-item').get(); items.sort(function(a, b) { var aPrio =
+$(a).hasClass('high') ? 1 : $(a).hasClass('medium') ? 2 : 3; var bPrio =
+$(b).hasClass('high') ? 1 : $(b).hasClass('medium') ? 2 : 3; return aPrio -
+bPrio; }); $.each(items, function(idx, itm) { list.append(itm); }); }

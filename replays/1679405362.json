@@ -1,0 +1,258 @@
+{
+  "messages": [
+    "Create a new Next.js app using the `create-next-app` command.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npx create-next-app doto\"\n}\n```\n\n### Step 2: \n\nNavigate into the `doto` directory that was just created.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"cd doto\"\n}\n```\n\n### Step 3: \n\nInstall necessary dependencies for the app, including `react` and `react-dom`.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npm install react react-dom\"\n}\n```\n\n### Step 4: \n\nCreate a `pages` directory within the `doto` directory.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"mkdir pages\"\n}\n```\n\n### Step 5: \n\nCreate a new file within the `pages` directory called `index.js`, which will serve as the main component for the app.\n\n```js\n{\n  \"actionType\": \"createFile\",\n  \"path\": \"pages/index.js\",\n  \"content\": \"import React from 'react';\\n\\nexport default function Index() {\\n  return (\\n    <div>\\n      <h1>doto</h1>\\n      <p>Welcome to my Todo App</p>\\n    </div>\\n  );\\n}\"\n}\n```\n\n### Step 6:\n\nStart the Next.js development server to test that everything works properly.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npm run dev\"\n}\n``` \n\nAt this point, you should see the app running in your development environment. Now you can add additional files and components for your todo list.",
+    "\n\nAction 1\n---\nactionType: runTerminal\ncontent: npx create-next-app doto\npath: null\n\n\nAction 2\n---\nactionType: runTerminal\ncontent: cd doto\npath: null\n\n\nAction 3\n---\nactionType: editFile\ncontent: Update the scripts section in package.json file as shown below:\\n\n```\n\"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\"\n}\n```\npath: package.json\n\n\nAction 4\n---\nactionType: editFile\ncontent: Create a pages directory in the root of the project and create a file called index.js inside the pages directory.\\n\nAdd the following code to the index.js file:\n```\nfunction HomePage() {\n    return (\n        <div>\n            <h1>My Todos</h1>\n        </div>\n    )\n}\nexport default HomePage\n```\npath: pages/index.js\n\n\nAction 5\n---\nactionType: runTerminal\ncontent: npm run dev\npath: null\n\n\nAction 6\n---\nactionType: editFile\ncontent: Add the following code to the style.css file in the public directory:\\n\n```\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n```\npath: public/style.css\n\n\nAction 7\n---\nactionType: editFile\ncontent: Create a components directory inside the src directory and create a file called Todo.js inside the components directory.\\n\nAdd the following code to the Todo.js file:\n```\nimport React from 'react'\n\nfunction Todo() {\n    return (\n        <div>\n            <input type=\"checkbox\" />\n            <p>Placeholder text here</p>\n        </div>\n    )\n}\n\nexport default Todo\n```\npath: src/components/Todo.js\n\n\nAction 8\n---\nactionType: editFile\ncontent: Update the contents of the index.js file in the pages directory to the following:\\n\n```\nimport Todo from '../src/components/Todo'\n\nfunction HomePage() {\n    return (\n        <div>\n            <h1>My Todos</h1>\n            <Todo />\n            <Todo />\n            <Todo />\n            <Todo />\n        </div>\n    )\n}\n\nexport default HomePage\n```\npath: pages/index.js\n\n\nAction 9\n---\nactionType: runTerminal\ncontent: npm run build\npath: null\n\n\nAction 10\n---\nactionType: runTerminal\ncontent: npm run start\npath: null\n\n\nFinal Result: Goal Met",
+    "Goal Met"
+  ],
+  "prompts": [
+    "Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library. \nFor each step to do, create an Action Object to describe what needs to be done.\n\nCreate a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.\n\nYou should always make up names given context instead of using placeholder values like <project name>.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`, always written in full.\n- New code to replace all of the current code in an existing file for `editFile`, always written in full.\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nWhen setting the `content` field to code, write the entire code needed.\n\n### Step 1: ",
+    "The goal of this task was to Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library.\n\nPlease review the files in the repository and confirm that the goal was met. If the goal was met, simply respond with \"Goal Met\".\nIf the goal was not met, create a step for every action that needs to be taken to accomplish the goal. Include installation, running commands, and editing files.\n\nWrite each step as an Action Object.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`.\n- New code to replace all of the current code in an existing file for `editFile`\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nThe directory structure is as follows:\n\n\n## Key Files\n\n\n--",
+    "The goal of this task was to Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library.\n\nPlease review the files in the repository and confirm that the goal was met. If the goal was met, simply respond with \"Goal Met\".\nIf the goal was not met, create a step for every action that needs to be taken to accomplish the goal. Include installation, running commands, and editing files.\n\nWrite each step as an Action Object.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`.\n- New code to replace all of the current code in an existing file for `editFile`\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nThe directory structure is as follows:\n\n\n## Key Files\n\n\n--"
+  ],
+  "actions": [
+    {
+      "actionType": "runTerminal",
+      "content": "npx create-next-app doto"
+    },
+    {
+      "actionType": "runTerminal",
+      "content": "cd doto"
+    },
+    {
+      "actionType": "runTerminal",
+      "content": "npm install react react-dom"
+    },
+    {
+      "actionType": "runTerminal",
+      "content": "mkdir pages"
+    },
+    {
+      "actionType": "createFile",
+      "path": "pages/index.js",
+      "content": "import React from 'react';\n\nexport default function Index() {\n  return (\n    <div>\n      <h1>doto</h1>\n      <p>Welcome to my Todo App</p>\n    </div>\n  );\n}"
+    },
+    {
+      "actionType": "runTerminal",
+      "content": "npm run dev"
+    },
+    {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start"
+    },
+    {
+      "todos": [
+        {
+          "id": 1,
+          "description": "Buy milk",
+          "due_date": "2021-09-30"
+        },
+        {
+          "id": 2,
+          "description": "Pay bills",
+          "due_date": "2021-10-05"
+        },
+        {
+          "id": 3,
+          "description": "Finish project",
+          "due_date": "2021-10-15"
+        }
+      ]
+    },
+    {
+      "name": "John",
+      "age": 30,
+      "city": "New York"
+    },
+    {
+      "checkbox": true,
+      "text": "Placeholder text here"
+    },
+    {
+      "title": "My Todos",
+      "todos": [
+        {
+          "task": "Task 1",
+          "completed": false
+        },
+        {
+          "task": "Task 2",
+          "completed": true
+        },
+        {
+          "task": "Task 3",
+          "completed": false
+        },
+        {
+          "task": "Task 4",
+          "completed": true
+        }
+      ]
+    }
+  ],
+  "debug": [
+    "Asking for the base action steps...",
+    "Asking for the base evaluation...",
+    "Taking actions to fix the base...",
+    "Asking for the base evaluation...",
+    "Base goal met! Now for the fun stuff..."
+  ],
+  "timeline": [
+    {
+      "type": "debug",
+      "debug": "Asking for the base action steps..."
+    },
+    {
+      "type": "prompt",
+      "prompt": "Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library. \nFor each step to do, create an Action Object to describe what needs to be done.\n\nCreate a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.\n\nYou should always make up names given context instead of using placeholder values like <project name>.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`, always written in full.\n- New code to replace all of the current code in an existing file for `editFile`, always written in full.\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nWhen setting the `content` field to code, write the entire code needed.\n\n### Step 1: "
+    },
+    {
+      "type": "message",
+      "message": "Create a new Next.js app using the `create-next-app` command.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npx create-next-app doto\"\n}\n```\n\n### Step 2: \n\nNavigate into the `doto` directory that was just created.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"cd doto\"\n}\n```\n\n### Step 3: \n\nInstall necessary dependencies for the app, including `react` and `react-dom`.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npm install react react-dom\"\n}\n```\n\n### Step 4: \n\nCreate a `pages` directory within the `doto` directory.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"mkdir pages\"\n}\n```\n\n### Step 5: \n\nCreate a new file within the `pages` directory called `index.js`, which will serve as the main component for the app.\n\n```js\n{\n  \"actionType\": \"createFile\",\n  \"path\": \"pages/index.js\",\n  \"content\": \"import React from 'react';\\n\\nexport default function Index() {\\n  return (\\n    <div>\\n      <h1>doto</h1>\\n      <p>Welcome to my Todo App</p>\\n    </div>\\n  );\\n}\"\n}\n```\n\n### Step 6:\n\nStart the Next.js development server to test that everything works properly.\n\n```js\n{\n  \"actionType\": \"runTerminal\",\n  \"content\": \"npm run dev\"\n}\n``` \n\nAt this point, you should see the app running in your development environment. Now you can add additional files and components for your todo list."
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "runTerminal",
+        "content": "npx create-next-app doto"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "runTerminal",
+        "content": "cd doto"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "runTerminal",
+        "content": "npm install react react-dom"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "runTerminal",
+        "content": "mkdir pages"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "createFile",
+        "path": "pages/index.js",
+        "content": "import React from 'react';\n\nexport default function Index() {\n  return (\n    <div>\n      <h1>doto</h1>\n      <p>Welcome to my Todo App</p>\n    </div>\n  );\n}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "actionType": "runTerminal",
+        "content": "npm run dev"
+      }
+    },
+    {
+      "type": "debug",
+      "debug": "Asking for the base evaluation..."
+    },
+    {
+      "type": "prompt",
+      "prompt": "The goal of this task was to Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library.\n\nPlease review the files in the repository and confirm that the goal was met. If the goal was met, simply respond with \"Goal Met\".\nIf the goal was not met, create a step for every action that needs to be taken to accomplish the goal. Include installation, running commands, and editing files.\n\nWrite each step as an Action Object.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`.\n- New code to replace all of the current code in an existing file for `editFile`\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nThe directory structure is as follows:\n\n\n## Key Files\n\n\n--"
+    },
+    {
+      "type": "message",
+      "message": "\n\nAction 1\n---\nactionType: runTerminal\ncontent: npx create-next-app doto\npath: null\n\n\nAction 2\n---\nactionType: runTerminal\ncontent: cd doto\npath: null\n\n\nAction 3\n---\nactionType: editFile\ncontent: Update the scripts section in package.json file as shown below:\\n\n```\n\"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\"\n}\n```\npath: package.json\n\n\nAction 4\n---\nactionType: editFile\ncontent: Create a pages directory in the root of the project and create a file called index.js inside the pages directory.\\n\nAdd the following code to the index.js file:\n```\nfunction HomePage() {\n    return (\n        <div>\n            <h1>My Todos</h1>\n        </div>\n    )\n}\nexport default HomePage\n```\npath: pages/index.js\n\n\nAction 5\n---\nactionType: runTerminal\ncontent: npm run dev\npath: null\n\n\nAction 6\n---\nactionType: editFile\ncontent: Add the following code to the style.css file in the public directory:\\n\n```\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n```\npath: public/style.css\n\n\nAction 7\n---\nactionType: editFile\ncontent: Create a components directory inside the src directory and create a file called Todo.js inside the components directory.\\n\nAdd the following code to the Todo.js file:\n```\nimport React from 'react'\n\nfunction Todo() {\n    return (\n        <div>\n            <input type=\"checkbox\" />\n            <p>Placeholder text here</p>\n        </div>\n    )\n}\n\nexport default Todo\n```\npath: src/components/Todo.js\n\n\nAction 8\n---\nactionType: editFile\ncontent: Update the contents of the index.js file in the pages directory to the following:\\n\n```\nimport Todo from '../src/components/Todo'\n\nfunction HomePage() {\n    return (\n        <div>\n            <h1>My Todos</h1>\n            <Todo />\n            <Todo />\n            <Todo />\n            <Todo />\n        </div>\n    )\n}\n\nexport default HomePage\n```\npath: pages/index.js\n\n\nAction 9\n---\nactionType: runTerminal\ncontent: npm run build\npath: null\n\n\nAction 10\n---\nactionType: runTerminal\ncontent: npm run start\npath: null\n\n\nFinal Result: Goal Met"
+    },
+    {
+      "type": "debug",
+      "debug": "Taking actions to fix the base..."
+    },
+    {
+      "type": "action",
+      "action": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "todos": [
+          {
+            "id": 1,
+            "description": "Buy milk",
+            "due_date": "2021-09-30"
+          },
+          {
+            "id": 2,
+            "description": "Pay bills",
+            "due_date": "2021-10-05"
+          },
+          {
+            "id": 3,
+            "description": "Finish project",
+            "due_date": "2021-10-15"
+          }
+        ]
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "name": "John",
+        "age": 30,
+        "city": "New York"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "checkbox": true,
+        "text": "Placeholder text here"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "title": "My Todos",
+        "todos": [
+          {
+            "task": "Task 1",
+            "completed": false
+          },
+          {
+            "task": "Task 2",
+            "completed": true
+          },
+          {
+            "task": "Task 3",
+            "completed": false
+          },
+          {
+            "task": "Task 4",
+            "completed": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "debug",
+      "debug": "Asking for the base evaluation..."
+    },
+    {
+      "type": "prompt",
+      "prompt": "The goal of this task was to Identify every step needed to create a basic Todo App called \"doto\" using Next.js. Initialize the app using the create-next-app library.\n\nPlease review the files in the repository and confirm that the goal was met. If the goal was met, simply respond with \"Goal Met\".\nIf the goal was not met, create a step for every action that needs to be taken to accomplish the goal. Include installation, running commands, and editing files.\n\nWrite each step as an Action Object.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`.\n- New code to replace all of the current code in an existing file for `editFile`\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nThe directory structure is as follows:\n\n\n## Key Files\n\n\n--"
+    },
+    {
+      "type": "message",
+      "message": "Goal Met"
+    },
+    {
+      "type": "debug",
+      "debug": "Base goal met! Now for the fun stuff..."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+/* Add styles to visually distinguish tasks that belong to different categories. */
+.note {
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+}

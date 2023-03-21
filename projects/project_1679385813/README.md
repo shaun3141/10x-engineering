@@ -1,0 +1,1 @@
+- **Number Scoring** - Assign a score to each number based on its coolness factor and return the sum of scores instead of numbers

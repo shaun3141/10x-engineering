@@ -1,0 +1,29 @@
+[
+  {
+    "actionType": "runTerminal",
+    "content": "npx create-next-app todo-app"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "cd todo-app"
+  },
+  {
+    "actionType": "createFile",
+    "path": "components/TodoList.js",
+    "content": "import React, { useState } from 'react';\n\nconst TodoList = () => {\n  const [todos, setTodos] = useState([]);\n  const [input, setInput] = useState('');\n\n  const addTodo = (e) => {\n    e.preventDefault();\n    setTodos([...todos, input]);\n    setInput('');\n  };\n\n  return (\n    <div>\n      <h1>Todo App</h1>\n      <form onSubmit={addTodo}>\n        <input type='text' value={input} onChange={(e) => setInput(e.target.value)} />\n        <button type='submit'>Add Todo</button>\n      </form>\n      <ul>\n        {todos.map((todo, index) => (\n          <li key={index}>{todo}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};\n\nexport default TodoList;"
+  },
+  {
+    "actionType": "editFile",
+    "path": "pages/index.js",
+    "content": "import Head from 'next/head';\nimport TodoList from '../components/TodoList';\n\nexport default function Home() {\n  return (\n    <div>\n      <Head>\n        <title>Todo App</title>\n        <meta name='description' content='Todo App built with Next.js' />\n        <link rel='icon' href='/favicon.ico' />\n      </Head>\n\n      <main>\n        <TodoList />\n      </main>\n    </div>\n  );\n}"
+  },
+  {
+    "actionType": "editFile",
+    "path": "components/TodoList.js",
+    "content": "import React, { useState, useEffect } from 'react';\n\nconst TodoList = () => {\n  const [todos, setTodos] = useState([]);\n  const [input, setInput] = useState('');\n\n  useEffect(() => {\n    const storedTodos = JSON.parse(localStorage.getItem('todos'));\n    if (storedTodos) {\n      setTodos(storedTodos);\n    }\n  }, []);\n\n  useEffect(() => {\n    localStorage.setItem('todos', JSON.stringify(todos));\n  }, [todos]);\n\n  const addTodo = (e) => {\n    e.preventDefault();\n    setTodos([...todos, input]);\n    setInput('');\n  };\n\n  return (\n    <div>\n      <h1>Todo App</h1>\n      <form onSubmit={addTodo}>\n        <input type='text' value={input} onChange={(e) => setInput(e.target.value)} />\n        <button type='submit'>Add Todo</button>\n      </form>\n      <ul>\n        {todos.map((todo, index) => (\n          <li key={index}>{todo}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};\n\nexport default TodoList;"
+  },
+  {
+    "actionType": "runTerminal",
+    "content": "npm install && npm run dev"
+  }
+]

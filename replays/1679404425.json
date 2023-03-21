@@ -1,0 +1,20 @@
+{
+  "messages": [],
+  "prompts": [
+    "Identify every step needed to create a basic HTML Todo App using JQuery and a modern UX framework like Materialize. \nFor each step to do, create an Action Object to describe what needs to be done.\n\nCreate a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.\n\nYou should always make up names given context instead of using placeholder values like <project name>.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`, always written in full.\n- New code to replace all of the current code in an existing file for `editFile`, always written in full.\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nWhen setting the `content` field to code, write the entire code needed.\n\n### Step 1: "
+  ],
+  "actions": [],
+  "debug": [
+    "Asking for the base action steps..."
+  ],
+  "timeline": [
+    {
+      "type": "debug",
+      "debug": "Asking for the base action steps..."
+    },
+    {
+      "type": "prompt",
+      "prompt": "Identify every step needed to create a basic HTML Todo App using JQuery and a modern UX framework like Materialize. \nFor each step to do, create an Action Object to describe what needs to be done.\n\nCreate a step for every action that needs to be taken to accomplish the goal, including installation, running commands, and editing files.\n\nYou should always make up names given context instead of using placeholder values like <project name>.\n\nAn Action Object JSON can be defined with the following properties:\n\n### actionType: enum\nA required field representing the type of action to perform. It must be one of the following values:\n\n- runTerminal: Execute a command in a terminal or command prompt window.\n- createFile: Create a new file with the specified contents.\n- editFile: Modify an existing file by replacing all of its content with something new.\n- renameFile: Rename an existing file.\n- deleteFile: Delete an existing file.\n\n### path: string\nA required field specifying the location of the file to create, edit, rename, or delete. The path should include the file's name and extension. For example: `src/components/Header.js`. This field is not needed for the `runTerminal` actionType.\n\n### content: string\nA required field containing the primary information related to the action. Depending on the actionType, this could be:\n\n- Code to execute in a terminal window for `runTerminal`.\n- Contents of a file to create for `createFile`, always written in full.\n- New code to replace all of the current code in an existing file for `editFile`, always written in full.\n- The new name of the file to be renamed for `renameFile`\nThe `content` field can be blank for the `deleteFile` action type.\n\nWhen setting the `content` field to code, write the entire code needed.\n\n### Step 1: "
+    }
+  ]
+}

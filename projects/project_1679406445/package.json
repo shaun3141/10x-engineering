@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jquery": "^3.6.4",
+    "materialize": "^1.0.0"
+  }
+}
